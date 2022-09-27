@@ -1,4 +1,15 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
+<div class="content-container">
+  <input
+    type="text"
+    name="search"
+    id="search"
+    class="reroutes"
+    placeholder="Search IP Address"
+  /><button class="reroutes"><b> Search </b></button>
+  <p id="description">
+    Input an IP Address into the search bar above, press the "Search" button,
+    and find out the general location of that IP Address!
+  </p>
+</div>
 {% endblock %}
