@@ -21,6 +21,7 @@ nav {
 .content-container {
   margin-top: 40px;
   text-align: center;
+  
 }
 
 #description {
@@ -32,4 +33,15 @@ nav {
     margin: 0 7px;
 }
 
+#flashes {
+  text-align: center;
+  width: 40%;
+}
 
+#search_form {
+  display: flex;
+}
+
+#results {
+  padding: 22px 0;
+}

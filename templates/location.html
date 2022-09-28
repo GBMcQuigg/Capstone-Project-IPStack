@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<div id="results">
+  {% if location %}
+
+  <h3>{{ location.city }}, {{ location.state }}</h3>
+  <h3>{{ location.country }}</h3>
+  {% endif %}
+  <div id="home-btn">
+    <a href="/">Home</a>
+  </div>
+</div>
+{% endblock %}

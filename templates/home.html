@@ -1,15 +1,20 @@
 {% extends 'base.html' %} {% block content %}
 <div class="content-container">
-  <input
-    type="text"
-    name="search"
-    id="search"
-    class="reroutes"
-    placeholder="Search IP Address"
-  /><button class="reroutes"><b> Search </b></button>
+  <form method="POST" id="search_form">
+    {{ form.hidden_tag() }} {% for field in form if field.widget.input_type !=
+    'hidden' %} {% for error in field.errors %}
+
+    <span class="text-danger">{{ error }}</span>
+
+    {% endfor %} {{ field(placeholder=field.label.text, class="form-control") }}
+    {% endfor %}
+
+    <button type="submit" class="reroutes">Search</button>
+  </form>
   <p id="description">
     Input an IP Address into the search bar above, press the "Search" button,
     and find out the general location of that IP Address!
   </p>
+  
 </div>
 {% endblock %}

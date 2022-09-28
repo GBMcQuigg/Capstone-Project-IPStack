@@ -7,7 +7,6 @@ bcrypt = Bcrypt()
 db = SQLAlchemy()
 
 
-
 class Result(db.Model):
     """Stored results from user search queries."""
 
@@ -36,7 +35,6 @@ class Result(db.Model):
     )
 
 
-
 class User(db.Model):
     """User saved to the database."""
 
@@ -63,9 +61,6 @@ class User(db.Model):
         nullable=False,
         unique=True
     )
-
-
-
 
 
     @classmethod
