@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Email, Length
 class SearchForm(FlaskForm):
     """Form for searching IP Address."""
 
-    search = StringField('Search', validators=[DataRequired()])
+    search = StringField('Look up an IP Address', validators=[DataRequired()])
 
 
 class RegisterForm(FlaskForm):
