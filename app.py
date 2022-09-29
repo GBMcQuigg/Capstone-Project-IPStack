@@ -4,7 +4,7 @@ import requests
 from forms import LoginForm, SearchForm, RegisterForm
 from models import db, connect_db, User, Result
 from sqlalchemy.exc import IntegrityError
-from private import password, private_key, API_KEY, API_BASE_URL
+# from private import password, private_key, API_KEY, API_BASE_URL
 import os
 
 CURR_USER_KEY = "curr_user"
