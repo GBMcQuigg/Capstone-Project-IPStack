@@ -11,12 +11,12 @@ CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', f'postgresql://postgres:{password}@localhost:5432/locations')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', f'postgresql://postgres:@localhost:5432/locations')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 # app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = True
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', f'{private_key}')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '123456')
 
 connect_db(app)
 db.create_all()
@@ -135,7 +135,7 @@ def homepage():
         
         search = form.search.data
         
-        res = requests.get(f'{API_BASE_URL}/{search}?access_key={API_KEY}')
+        res = requests.get(f'http://api.ipstack.com/{search}?access_key=8d88396fbf7b759b8602b0e0cf2b8b41')
         data = res.json()
         city = data['city']
         state = data['region_name']
