@@ -11,8 +11,11 @@
       {% endfor %} {{ field(placeholder=field.label.text, class="form-control")
       }} {% endfor %}
 
-      <button class="reroutes">Sign Up</button>
+      <button class="btn btn-outline-light reroutes"><span class="nav-btns">Sign Up</span></button>
     </form>
+    <div>
+      <p>Already have an account?<a href="/login" style="color: white;">Login here.</a></p>
+    </div>
   </div>
 </div>
 {% endblock %}
