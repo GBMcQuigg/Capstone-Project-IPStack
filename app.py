@@ -4,21 +4,18 @@ import requests
 from forms import LoginForm, SearchForm, RegisterForm
 from models import db, connect_db, User, Result
 from sqlalchemy.exc import IntegrityError
-# from private import password, private_key, API_KEY, API_BASE_URL
+from private import password, private_key, API_KEY, API_BASE_URL
 import os
-
-from private import API_KEY
 
 CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:@localhost:5432/locations')
-
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', f'postgresql://postgres:{password}@localhost:5432/locations')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 # app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = True
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '123456')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', f'{private_key}')
 
 connect_db(app)
 db.create_all()
@@ -137,7 +134,7 @@ def homepage():
         
         search = form.search.data
         
-        res = requests.get(f'http://api.ipstack.com/{search}?access_key={API_KEY}')
+        res = requests.get(f'{API_BASE_URL}/{search}?access_key={API_KEY}')
         data = res.json()
         city = data['city']
         state = data['region_name']
