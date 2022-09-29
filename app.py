@@ -5,12 +5,13 @@ from forms import LoginForm, SearchForm, RegisterForm
 from models import db, connect_db, User, Result
 from sqlalchemy.exc import IntegrityError
 from private import password, private_key, API_KEY, API_BASE_URL
+import os
 
 CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:{password}@localhost:5432/locations'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', f'postgresql://postgres:{password}@localhost:5432/locations')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
