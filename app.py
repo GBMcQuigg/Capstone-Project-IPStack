@@ -7,11 +7,13 @@ from sqlalchemy.exc import IntegrityError
 # from private import password, private_key, API_KEY, API_BASE_URL
 import os
 
+from private import API_KEY
+
 CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:@localhost:5432/locations')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:Blake2017@localhost:5432/locations')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
@@ -135,7 +137,7 @@ def homepage():
         
         search = form.search.data
         
-        res = requests.get(f'http://api.ipstack.com/{search}?access_key=8d88396fbf7b759b8602b0e0cf2b8b41')
+        res = requests.get(f'http://api.ipstack.com/{search}?access_key={API_KEY}')
         data = res.json()
         city = data['city']
         state = data['region_name']
