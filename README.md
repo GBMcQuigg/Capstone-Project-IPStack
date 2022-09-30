@@ -12,4 +12,4 @@ My Site: IP Tracker, https://gbm-ip-tracker.herokuapp.com/
   
   Underneath the IP Address information, there is a home button to get back to the "Search" input, where the user can go through the whole process again and again!
   
-  ***This API is a free trial API, meaning once the maximum number of requests are reached per month, the user will not be able to search anymore until the following          month***
+  ***This API is a free trial API, meaning once the maximum number of requests are reached per month, the user will not be able to search anymore until the following          month!***
