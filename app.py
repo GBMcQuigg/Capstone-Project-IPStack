@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request, flash, redirect, session, abort, g
+from flask import Flask, render_template, flash, redirect, session, g
 import requests
 from forms import LoginForm, SearchForm, RegisterForm
 from models import db, connect_db, User, Result
@@ -134,7 +134,7 @@ def homepage():
         
         search = form.search.data
         
-        res = requests.get(f'{API_BASE_URL}/{search}?access_key={API_KEY}')
+        res = requests.get(f'http://api.ipstack.com/{search}?access_key=8d88396fbf7b759b8602b0e0cf2b8b41')
         data = res.json()
         city = data['city']
         state = data['region_name']
