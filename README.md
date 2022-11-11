@@ -1,8 +1,8 @@
-API = https://ipstack.com/
+### API = https://ipstack.com/
 
-My Site: IP Tracker, https://gbm-ip-tracker.herokuapp.com/
+# My Site: IP Tracker, https://gbm-ip-tracker.herokuapp.com/
 
-  My website is designed to take in an IPv4 or IPv6 address and return the City, State, and Country of the IP Address. 
+  ## My website is designed to take in an IPv4 or IPv6 address and return the City, State, and Country of the IP Address. 
 
   The features I implemented were User authentication, flash messages for better user experience, a simple and clean rerouting system, easy site navigation, and a straight forward response/result system to return the exact data a user is looking for. 
 
